@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Introduction View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroductionViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
         <!--Вопрос №-->
         <scene sceneID="Yy1-0G-cwQ">
             <objects>
-                <viewController id="eko-fQ-qlO" sceneMemberID="viewController">
+                <viewController id="eko-fQ-qlO" customClass="QuestionViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wvz-PP-75N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,12 +247,6 @@
                             <constraint firstItem="wmb-2o-XeR" firstAttribute="trailing" secondItem="nci-AV-EYK" secondAttribute="trailing" id="sCD-1e-qeQ"/>
                             <constraint firstItem="v2o-Hf-j3h" firstAttribute="leading" secondItem="wmb-2o-XeR" secondAttribute="leading" constant="20" id="wdB-xx-ugc"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="v2o-Hf-j3h"/>
-                                <exclude reference="hme-Qa-fjr"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Вопрос №" id="f1v-Gv-xO8">
                         <barButtonItem key="rightBarButtonItem" title="3 =&gt;" id="w1h-Ty-Qw8">
@@ -262,6 +256,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="questionLabel" destination="D7r-DK-sOm" id="B5K-gl-Zlm"/>
                         <segue destination="9v0-VC-Pi4" kind="show" identifier="showResult" id="hhu-Kk-Rvz"/>
                     </connections>
                 </viewController>
@@ -272,7 +267,7 @@
         <!--Результаты-->
         <scene sceneID="DpH-bs-Zzm">
             <objects>
-                <viewController id="9v0-VC-Pi4" sceneMemberID="viewController">
+                <viewController id="9v0-VC-Pi4" customClass="ResultsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oYC-tf-hhr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,9 +298,16 @@
                             <constraint firstItem="lOd-nD-mUu" firstAttribute="leading" secondItem="iXG-19-ZBk" secondAttribute="leading" constant="20" id="qeR-rd-b9f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Результаты" id="z6V-aI-IdR"/>
+                    <navigationItem key="navigationItem" title="Результаты" id="z6V-aI-IdR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cb2-9e-I7X">
+                            <connections>
+                                <segue destination="gia-HV-BO0" kind="unwind" unwindAction="unwindFor:" id="eS5-SJ-sQ7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdC-lO-hMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gia-HV-BO0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2154" y="89"/>
         </scene>
