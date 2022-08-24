@@ -40,8 +40,7 @@ extension ResultsViewController {
         
         updateUI(with: mostFrequencyAnimal)
     }
-    
-    
+
     private func updateUI(with animal: AnimalType?) {  // отображение программы
         animalTypeLabel.text = "Вы - \(animal?.rawValue ?? "🐶")!"
         descriptionLabel.text = animal?.definition ?? ""

@@ -62,7 +62,6 @@ class QuestionViewController: UIViewController {
                 answersChoosen.append(answer)
             }
         }
-        
         nextQuestion()
     }
     
